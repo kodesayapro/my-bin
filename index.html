@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bin2Dec PWA Test</title>
+    <link rel="manifest" href="manifest.js" />
+    <!-- Warna tema untuk browser yang mendukung -->
+    <meta name="theme-color" content="#f8fcfa" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8fcfa;
+        color: #333;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+        margin: 10px 0;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Selamat Datang di Bin2Dec PWA</h1>
+      <p>Ini adalah contoh aplikasi PWA yang sederhana.</p>
+      <button onclick="convertBinary()">Convert Binary to Decimal</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        if ("serviceworker" in navigator) {
+          navigator.serviceWorker.register("sw.js");
+        }
+      });
+      // Fungsi sederhana untuk konversi biner ke desimal
+      function convertBinary() {
+        const binary = prompt("Masukkan angka biner:");
+        const decimal = parseInt(binary, 2);
+        document.getElementById("result").textContent = isNaN(decimal)
+          ? "Input tidak valid"
+          : `Hasil desimal: ${decimal}`;
+      }
+
+      // Mendaftarkan service worker untuk PWA
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("Service Worker registered:", reg))
+          .catch((err) =>
+            console.error("Service Worker registration failed:", err)
+          );
+      }
+    </script>
+  </body>
+</html>
