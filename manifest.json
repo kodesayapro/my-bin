@@ -1,5 +1,5 @@
 {
-  "name": "bin2dec-v1",
+  "name": "Binary to Decimal Converter",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#f8fcfa",

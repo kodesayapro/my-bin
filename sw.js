@@ -1,4 +1,4 @@
-const cacheName = "bin2dec-v1";
+const cacheName = "Binary to Decimal Converter";
 const preCache = ["/", "/style.css", "/script.js"];
 
 self.addEventListener("install", (e) => {
