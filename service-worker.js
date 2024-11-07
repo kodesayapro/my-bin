@@ -1,5 +1,5 @@
 const cacheName = "Binary to Decimal Converter";
-const preCache = ["/", "/style.css", "/script.js"];
+const preCache = ["/"];
 
 self.addEventListener("install", (e) => {
   console.log("Service Worker installed");
